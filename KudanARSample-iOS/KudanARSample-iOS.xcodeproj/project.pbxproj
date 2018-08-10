@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E7A5A0E211D0F3B00E0BE14 /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */; };
+		3E7A5A11211D218100E0BE14 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7A5A10211D218100E0BE14 /* libc++.tbd */; };
 		3EBC02FF21070EBC0042FCB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC02FE21070EBC0042FCB6 /* AppDelegate.swift */; };
 		3EBC030121070EBC0042FCB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC030021070EBC0042FCB6 /* ViewController.swift */; };
 		3EBC030421070EBC0042FCB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC030221070EBC0042FCB6 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KudanAR.framework; sourceTree = "<group>"; };
+		3E7A5A10211D218100E0BE14 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		3EBC02FB21070EBC0042FCB6 /* KudanARSample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KudanARSample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBC02FE21070EBC0042FCB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EBC030021070EBC0042FCB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7A5A11211D218100E0BE14 /* libc++.tbd in Frameworks */,
+				3E7A5A0E211D0F3B00E0BE14 /* KudanAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E7A5A0F211D218100E0BE14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E7A5A10211D218100E0BE14 /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3EBC02F221070EBC0042FCB6 = {
 			isa = PBXGroup;
 			children = (
 				3EBC02FD21070EBC0042FCB6 /* KudanARSample-iOS */,
 				3EBC02FC21070EBC0042FCB6 /* Products */,
+				3E7A5A0F211D218100E0BE14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +69,7 @@
 		3EBC02FD21070EBC0042FCB6 /* KudanARSample-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */,
 				3EBC02FE21070EBC0042FCB6 /* AppDelegate.swift */,
 				3EBC030021070EBC0042FCB6 /* ViewController.swift */,
 				3EBC030221070EBC0042FCB6 /* Main.storyboard */,
@@ -282,6 +298,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2YSAZBRRN;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KudanARSample-iOS",
+				);
 				INFOPLIST_FILE = "KudanARSample-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -289,6 +310,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = eu.kudan.ar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,6 +322,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2YSAZBRRN;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KudanARSample-iOS",
+				);
 				INFOPLIST_FILE = "KudanARSample-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,6 +334,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = eu.kudan.ar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
