@@ -2,6 +2,10 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## My Framework
+
+KudanAR.framework/
+
 ## Build generated
 build/
 DerivedData/
