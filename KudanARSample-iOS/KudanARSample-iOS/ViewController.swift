@@ -25,6 +25,8 @@ class ViewController: ARCameraViewController {
     }
     
     @IBAction func modelButton_TouchUpInside(_ sender: Any) {
+        clearAllNodes()
+        imageTrackable?.world.children[1].visible = true
     }
     
     var imageTrackable:ARImageTrackable?
@@ -34,6 +36,7 @@ class ViewController: ARCameraViewController {
         setupImageTrackable()
         
         addImageNode()
+        addModelNode()
     }
     
     func setupImageTrackable() {
@@ -53,18 +56,39 @@ class ViewController: ARCameraViewController {
         // PNG の場合は拡張子は不要です。
         let imageNode = ARImageNode(image: UIImage(named: "cow"))
         
-        // ARImageTrackable に imageNode を追加
-        imageTrackable?.world.addChild(imageNode)
-        
         // マーカー画像のサイズに合わせるように、それぞれの幅から拡大率を計算
         let scaleRatio = Float(imageTrackable!.width)/Float(imageNode!.texture.width)
-        
         // 拡大率を ImageNode に適用
         imageNode?.scale(byUniform: scaleRatio)
-        
+
+        // ARImageTrackable に imageNode を追加
+        imageTrackable?.world.addChild(imageNode)
+
         imageNode?.visible = false
     }
     
+    func addModelNode() {
+        // モデルのインポート
+        let modelImporter = ARModelImporter(bundled: "ben.jet")
+        let modelNode = modelImporter?.getNode()
+        
+        // モデルの ARMeshNode にアンビエントライトを適用
+        if let meshNodes = modelNode?.meshNodes {
+            for case let meshNode as ARMeshNode in meshNodes {
+                let material = meshNode.material as? ARLightMaterial
+                material?.ambient.value = ARVector3(valuesX: 0.8, y: 0.8, z: 0.8)
+            }
+        }
+
+        // 向きと拡大率を指定
+        modelNode?.rotate(byDegrees: 90, axisX: 1, y: 0, z: 0)
+        modelNode?.scale(byUniform: 0.25)
+        
+        // ARImageTrackable に modelNode を追加
+        imageTrackable?.world.addChild(modelNode)
+        
+        modelNode?.visible = false
+    }
     
     func clearAllNodes() {
         let nodes = imageTrackable?.world.children
