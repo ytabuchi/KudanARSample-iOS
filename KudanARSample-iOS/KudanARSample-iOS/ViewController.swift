@@ -69,7 +69,7 @@ class ViewController: ARCameraViewController {
     
     func addModelNode() {
         // モデルのインポート
-        let modelImporter = ARModelImporter(bundled: "ben.jet")
+        let modelImporter = ARModelImporter(bundled: "ben.armodel")
         let modelNode = modelImporter?.getNode()
         
         // モデルの ARMeshNode にアンビエントライトを適用
@@ -79,7 +79,7 @@ class ViewController: ARCameraViewController {
                 material?.ambient.value = ARVector3(valuesX: 0.8, y: 0.8, z: 0.8)
             }
         }
-
+ 
         // 向きと拡大率を指定
         modelNode?.rotate(byDegrees: 90, axisX: 1, y: 0, z: 0)
         modelNode?.scale(byUniform: 0.25)
