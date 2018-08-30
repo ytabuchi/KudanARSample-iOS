@@ -14,6 +14,7 @@ class ViewController: ARCameraViewController {
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var modelButton: UIButton!
+    @IBOutlet weak var videoButton: UIButton!
     
     @IBAction func clearButton_TouchUpInside(_ sender: Any) {
         clearAllNodes()
@@ -29,7 +30,17 @@ class ViewController: ARCameraViewController {
         imageTrackable?.world.children[1].visible = true
     }
     
+    @IBAction func videoButton_TouchUpInside(_ sender: Any) {
+        clearAllNodes()
+        // videoNode のビデオが終了したら消えてしまうのをリセットさせてから再生して回避しています。
+        videoNode?.reset()
+        videoNode?.play()
+        imageTrackable?.world.children[2].visible = true
+    }
+    
+    
     var imageTrackable:ARImageTrackable?
+    var videoNode:ARVideoNode?
     
     override func setupContent() {
         
@@ -37,6 +48,7 @@ class ViewController: ARCameraViewController {
         
         addImageNode()
         addModelNode()
+        addVideoNode()
     }
     
     func setupImageTrackable() {
@@ -88,6 +100,20 @@ class ViewController: ARCameraViewController {
         imageTrackable?.world.addChild(modelNode)
         
         modelNode?.visible = false
+    }
+    
+    func addVideoNode() {
+        // videoNode を mp4 ファイルで初期化
+        videoNode = ARVideoNode.init(bundledFile: "waves.mp4")
+        
+        // 拡大率を指定
+        let scaleRatio = Float(imageTrackable!.width) / Float(videoNode!.videoTexture.width)
+        videoNode?.scale(byUniform: scaleRatio)
+        
+        // ARImageTrackable に videoNode を追加
+        imageTrackable?.world.addChild(videoNode)
+        
+        videoNode?.visible = false
     }
     
     func clearAllNodes() {
