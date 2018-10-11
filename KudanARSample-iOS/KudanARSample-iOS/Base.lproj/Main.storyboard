@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="374"/>
+            <point key="canvasLocation" x="1009" y="355"/>
         </scene>
         <!--Kudan AR Sample-->
         <scene sceneID="jXb-aE-yPZ">
@@ -115,23 +115,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRA-Lj-gMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="248" y="734"/>
+            <point key="canvasLocation" x="238" y="734"/>
         </scene>
         <!--Markerless AR-->
         <scene sceneID="GxB-pi-b36">
             <objects>
-                <viewController id="K89-cf-jcp" sceneMemberID="viewController">
+                <viewController id="K89-cf-jcp" customClass="ArbiViewController" customModule="KudanARSample_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JgY-YV-LLu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGq-Fn-z50">
+                                <rect key="frame" x="20" y="686" width="374" height="30"/>
+                                <state key="normal" title="Start Tracking"/>
+                                <connections>
+                                    <action selector="changeTrackingModeButton_TouchUpInside:" destination="K89-cf-jcp" eventType="touchUpInside" id="pZC-rr-mEI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pGq-Fn-z50" firstAttribute="leading" secondItem="73y-8g-ggU" secondAttribute="leading" constant="20" id="62X-XP-ZxL"/>
+                            <constraint firstItem="73y-8g-ggU" firstAttribute="trailing" secondItem="pGq-Fn-z50" secondAttribute="trailing" constant="20" id="gNy-kd-uIJ"/>
+                            <constraint firstItem="73y-8g-ggU" firstAttribute="bottom" secondItem="pGq-Fn-z50" secondAttribute="bottom" constant="20" id="whG-SC-MtM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="73y-8g-ggU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Markerless AR" id="I0M-Us-qIf"/>
+                    <connections>
+                        <outlet property="changeTrackingModeButton" destination="pGq-Fn-z50" id="ODK-hD-Kih"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYO-lP-BpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="1148"/>
+            <point key="canvasLocation" x="1008.6956521739131" y="1148.6413043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iry-pZ-dMN">
@@ -142,12 +159,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="wu9-OF-e9p" kind="relationship" relationship="rootViewController" id="6js-6Y-jV4"/>
+                        <segue destination="wu9-OF-e9p" kind="relationship" relationship="rootViewController" id="AEk-Ii-ore"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCJ-Tx-53G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-265" y="734"/>
+            <point key="canvasLocation" x="-496" y="734"/>
         </scene>
     </scenes>
 </document>
