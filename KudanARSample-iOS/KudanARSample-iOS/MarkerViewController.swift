@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MarkerViewController.swift
 //  KudanARSample-iOS
 //
 //  Created by Yoshito Tabuchi on 2018/07/24.
@@ -9,7 +9,7 @@
 import UIKit
 import KudanAR
 
-class ViewController: ARCameraViewController {
+class MarkerViewController: ARCameraViewController {
 
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var imageButton: UIButton!

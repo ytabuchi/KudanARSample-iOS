@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E587069214BA9BD00CCDF3E /* ArbiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E587068214BA9BD00CCDF3E /* ArbiViewController.swift */; };
 		3E7A5A0E211D0F3B00E0BE14 /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */; };
 		3E7A5A11211D218100E0BE14 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7A5A10211D218100E0BE14 /* libc++.tbd */; };
 		3EA5A1EF212D162500A19546 /* ben.armodel in Resources */ = {isa = PBXBuildFile; fileRef = 3EA5A1EE212D162500A19546 /* ben.armodel */; };
 		3EA5A1F1212D16B200A19546 /* bigBenTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA5A1F0212D16B200A19546 /* bigBenTexture.png */; };
 		3EBC02FF21070EBC0042FCB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC02FE21070EBC0042FCB6 /* AppDelegate.swift */; };
-		3EBC030121070EBC0042FCB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC030021070EBC0042FCB6 /* ViewController.swift */; };
+		3EBC030121070EBC0042FCB6 /* MarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC030021070EBC0042FCB6 /* MarkerViewController.swift */; };
 		3EBC030421070EBC0042FCB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC030221070EBC0042FCB6 /* Main.storyboard */; };
 		3EBC030621070EBE0042FCB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC030521070EBE0042FCB6 /* Assets.xcassets */; };
 		3EBC030921070EBE0042FCB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC030721070EBE0042FCB6 /* LaunchScreen.storyboard */; };
@@ -20,13 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E587068214BA9BD00CCDF3E /* ArbiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbiViewController.swift; sourceTree = "<group>"; };
 		3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KudanAR.framework; sourceTree = "<group>"; };
 		3E7A5A10211D218100E0BE14 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		3EA5A1EE212D162500A19546 /* ben.armodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = ben.armodel; sourceTree = "<group>"; };
 		3EA5A1F0212D16B200A19546 /* bigBenTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigBenTexture.png; sourceTree = "<group>"; };
 		3EBC02FB21070EBC0042FCB6 /* KudanARSample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KudanARSample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBC02FE21070EBC0042FCB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3EBC030021070EBC0042FCB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3EBC030021070EBC0042FCB6 /* MarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerViewController.swift; sourceTree = "<group>"; };
 		3EBC030321070EBC0042FCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EBC030521070EBE0042FCB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBC030821070EBE0042FCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,11 +90,12 @@
 				3EA5A1ED212D064800A19546 /* Assets */,
 				3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */,
 				3EBC02FE21070EBC0042FCB6 /* AppDelegate.swift */,
-				3EBC030021070EBC0042FCB6 /* ViewController.swift */,
+				3EBC030021070EBC0042FCB6 /* MarkerViewController.swift */,
 				3EBC030221070EBC0042FCB6 /* Main.storyboard */,
 				3EBC030521070EBE0042FCB6 /* Assets.xcassets */,
 				3EBC030721070EBE0042FCB6 /* LaunchScreen.storyboard */,
 				3EBC030A21070EBE0042FCB6 /* Info.plist */,
+				3E587068214BA9BD00CCDF3E /* ArbiViewController.swift */,
 			);
 			path = "KudanARSample-iOS";
 			sourceTree = "<group>";
@@ -171,8 +174,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EBC030121070EBC0042FCB6 /* ViewController.swift in Sources */,
+				3EBC030121070EBC0042FCB6 /* MarkerViewController.swift in Sources */,
 				3EBC02FF21070EBC0042FCB6 /* AppDelegate.swift in Sources */,
+				3E587069214BA9BD00CCDF3E /* ArbiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
