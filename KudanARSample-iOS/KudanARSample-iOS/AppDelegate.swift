@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Add APIKey
-        ARAPIKey.sharedInstance().setAPIKey("agWZcpYLYjBxCbWf2qZx6k+PWISqeGtFCqKaZwYtwS+kdn1HKiQAmsJ55STRBe9BqCw3VwG6qL+ESI5ntTF/iV/uekLG3PCokaUE0/uTzqhaYlxRdmuNBIduzBCjq3mV2na+gy3ffHH9Ipc7eIN0geTj3p+ppsmK0U399iGmN38ndIh6k2y16cByWIecMSU3yw3Ztw7gHRqf83hVhZ5T2ACGK4SNkQhhdKp+CTaR5W3amYCJBgwumqFqNFyI9UniuMk70T/cQObRQum2U51OjjbMfmEAwIBt8Q8jD2yACzye6K4/1O4pZhbGEbiDeLrAfxqMwBAe5o6vnYIilGNnpDhfi3wOHhRaqtLOVvB58GUIFTnAPvmYFVnLWRJmCUZ9FJNDyX3ALCl/alFEWh+A/a6NFjcwLGKI9drPuGG4ONFg4p0l+p3b9DZoLzszlmWAflI/UFzQa++kQn3/sclO9i0vPnpi0LWoABm5vGswLVAIX/0k6384GXxfkADI6fjGtf62XJ5ImaVDiiREa9mabWEQGoifghQG1sGNDYgBIYEpiaLsVzOfTALpe20Q7kFCMjedJImQhhuLtEK1BXfXJEed1QqUOsG9IeKxKk28GbOtOF9w3yrSF3gnJslzZxF2kEF3C6ckog8byagS+4p37FJmbpPsiKNH1Qm0LuouGcQ=")
+        ARAPIKey.sharedInstance().setAPIKey("ovouHUtCPuTxet4uE3tealbf3MPdEfdk9oxoYDhl1pC7sXyGABQp7LwxAFLgmPqtj5ydzNq/lzDC+jfR5cK60/435sPD406FDg9bd+QVsqnUUDwBGd+B4k5DBDse6ikC61Ax3x+1GdGjgdIKu9qnOL6mNKDjQkIZXYrPeOyr2g4wyDI1v/scrIO7aXZ85EhC40wbN9vprwTYn+fo5LfTs/vTvZDyIIbo27M/5g3OPACoegqBINnh9Njla225o117bkpyJ/6GZw8B6ICYcl0Su12eS9q7ONaSX2QRAOQqwB9Q31cYFv5FaOc/W2P8/+3bv3Wh1eaRkjvmR76JDwo9bZlh4WLKHtVlWlv2CNR6vN8l5lo6IlGHY5ugYV1dP4KTImdLK1rv/j8OPxUZjKmIZJGERLYN+A0pzhbbA7smS/t0mB1WFeFfO4zG4GnSjvuIWU3av4k6R1+qBwE4sg5J9D9c6YB56OC9/510Pdg/C5U43/Lz91JfAdTdV81v8OGGH6RpKSU0AkzNSsOWMxRW3PgrUkHAPJRkt+scce7bKakxfdhHVQLbEkL2TsWB8fEJm0Bz9Pa94JY82CridPVtTi/aXe+GBPLktIIFDBM6q18yaLNASJ8kK9GsoLEfQFVxN8nBeHbMU/k2LYIQXTT0y2n1Zn7UvhnF7J3GEoN6o/E=")
         
         return true
     }
