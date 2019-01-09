@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E489FC921E5AF8E000D8257 /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E489FC821E5AF8E000D8257 /* KudanAR.framework */; };
 		3E587069214BA9BD00CCDF3E /* ArbiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E587068214BA9BD00CCDF3E /* ArbiViewController.swift */; };
-		3E7A5A0E211D0F3B00E0BE14 /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */; };
 		3E7A5A11211D218100E0BE14 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7A5A10211D218100E0BE14 /* libc++.tbd */; };
 		3EA5A1EF212D162500A19546 /* ben.armodel in Resources */ = {isa = PBXBuildFile; fileRef = 3EA5A1EE212D162500A19546 /* ben.armodel */; };
 		3EA5A1F1212D16B200A19546 /* bigBenTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA5A1F0212D16B200A19546 /* bigBenTexture.png */; };
@@ -21,8 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E489FC821E5AF8E000D8257 /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KudanAR.framework; sourceTree = "<group>"; };
 		3E587068214BA9BD00CCDF3E /* ArbiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbiViewController.swift; sourceTree = "<group>"; };
-		3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KudanAR.framework; sourceTree = "<group>"; };
 		3E7A5A10211D218100E0BE14 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		3EA5A1EE212D162500A19546 /* ben.armodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = ben.armodel; sourceTree = "<group>"; };
 		3EA5A1F0212D16B200A19546 /* bigBenTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigBenTexture.png; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E7A5A11211D218100E0BE14 /* libc++.tbd in Frameworks */,
-				3E7A5A0E211D0F3B00E0BE14 /* KudanAR.framework in Frameworks */,
+				3E489FC921E5AF8E000D8257 /* KudanAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +87,8 @@
 		3EBC02FD21070EBC0042FCB6 /* KudanARSample-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3E489FC821E5AF8E000D8257 /* KudanAR.framework */,
 				3EA5A1ED212D064800A19546 /* Assets */,
-				3E7A5A0D211D0F3B00E0BE14 /* KudanAR.framework */,
 				3EBC02FE21070EBC0042FCB6 /* AppDelegate.swift */,
 				3EBC030021070EBC0042FCB6 /* MarkerViewController.swift */,
 				3EBC030221070EBC0042FCB6 /* Main.storyboard */,
@@ -255,7 +255,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -326,13 +325,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KudanARSample-iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "KudanARSample-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eu.kudan.ar;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ytabuchi.kudanarsample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
@@ -350,13 +350,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KudanARSample-iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "KudanARSample-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eu.kudan.ar;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ytabuchi.kudanarsample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
