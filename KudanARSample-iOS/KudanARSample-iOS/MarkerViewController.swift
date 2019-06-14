@@ -23,6 +23,7 @@ class MarkerViewController: ARCameraViewController {
     @IBAction func imageButton_TouchUpInside(_ sender: Any) {
         clearAllNodes()
         imageTrackable?.world.children[0].visible = true
+        secondImageTrackable?.world.children[0].visible = true
     }
     
     @IBAction func modelButton_TouchUpInside(_ sender: Any) {
@@ -40,6 +41,7 @@ class MarkerViewController: ARCameraViewController {
     
     
     var imageTrackable:ARImageTrackable?
+    var secondImageTrackable:ARImageTrackable?
     var videoNode:ARVideoNode?
     
     override func setupContent() {
@@ -49,11 +51,13 @@ class MarkerViewController: ARCameraViewController {
         addImageNode()
         addModelNode()
         addVideoNode()
+        addSecondImageNode()
     }
     
     func setupImageTrackable() {
         // ARImageTrackable オブジェクトのインスタンス化と初期化
-        imageTrackable = ARImageTrackable.init(image: UIImage(named: "lego.jpg"), name: "lego")
+        imageTrackable = ARImageTrackable.init(image: UIImage(named: "KudanPanel.jpg"), name: "panelMarker")
+        secondImageTrackable = ARImageTrackable.init(image: UIImage(named: "lego.jpg"), name: "legoMarker")
         
         // image tracker manager のインスタンスを取得して初期化
         let imageTrackerManager = ARImageTrackerManager.getInstance()
@@ -61,6 +65,7 @@ class MarkerViewController: ARCameraViewController {
         
         // ARImageTrackable を　image tracker manager に追加
         imageTrackerManager?.addTrackable(imageTrackable)
+        imageTrackerManager?.addTrackable(secondImageTrackable)
     }
     
     func addImageNode() {
@@ -104,7 +109,7 @@ class MarkerViewController: ARCameraViewController {
     
     func addVideoNode() {
         // videoNode を mp4 ファイルで初期化
-        videoNode = ARVideoNode.init(bundledFile: "waves.mp4")
+        videoNode = ARVideoNode.init(bundledFile: "cloud.mp4")
         
         // 拡大率を指定
         let scaleRatio = Float(imageTrackable!.width) / Float(videoNode!.videoTexture.width)
@@ -116,10 +121,24 @@ class MarkerViewController: ARCameraViewController {
         videoNode?.visible = false
     }
     
+    func addSecondImageNode(){
+        let imageNode = ARImageNode(image: UIImage(named: "cow"))
+        let scaleRatio = Float(secondImageTrackable!.width)/Float(imageNode!.texture.width)
+        imageNode?.scale(byUniform: scaleRatio)
+        secondImageTrackable?.world.addChild(imageNode)
+        
+        imageNode?.visible = false
+    }
+    
     func clearAllNodes() {
         let nodes = imageTrackable?.world.children
         nodes?.forEach({ (node) in
             node.visible = false
+        })
+        
+        let secondNodes = secondImageTrackable?.world.children
+        secondNodes?.forEach({ (secondNode) in
+            secondNode.visible = false
         })
     }
     
