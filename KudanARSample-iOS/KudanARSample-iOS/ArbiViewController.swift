@@ -24,12 +24,12 @@ class ArbiViewController: ARCameraViewController {
                 arbiTracker.stop()
                 arbiTracker.targetNode.visible = true
                 
-                changeTrackingModeButton.setTitle("Start Tracking", for: UIControlState.normal)
+                changeTrackingModeButton.setTitle("Start Tracking", for: UIControl.State.normal)
             } else {
                 arbiTracker.start()
                 arbiTracker.targetNode.visible = false
                 
-                changeTrackingModeButton.setTitle("Stop Tracking", for: UIControlState.normal)
+                changeTrackingModeButton.setTitle("Stop Tracking", for: UIControl.State.normal)
             }
         }
     }
