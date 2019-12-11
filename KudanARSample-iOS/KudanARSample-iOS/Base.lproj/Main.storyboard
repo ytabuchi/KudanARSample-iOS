@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UcE-Ng-38Q">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UcE-Ng-38Q">
+    <device id="retina5_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,7 +50,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="JPF-aV-AGZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Gpc-zP-Eko"/>
                             <constraint firstItem="TIJ-mS-vF3" firstAttribute="leading" secondItem="Erq-Lj-xe2" secondAttribute="trailing" constant="8" id="MUU-w2-aIf"/>
@@ -75,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="355"/>
+            <point key="canvasLocation" x="1342" y="26"/>
         </scene>
         <!--Kudan AR Sample-->
         <scene sceneID="jXb-aE-yPZ">
@@ -86,21 +85,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t36-UD-FnY">
-                                <rect key="frame" x="20" y="94" width="374" height="30"/>
+                                <rect key="frame" x="20" y="74" width="374" height="30"/>
                                 <state key="normal" title="Marker AR"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="R6m-Ww-7Xv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkx-XK-QJq">
-                                <rect key="frame" x="20" y="144" width="374" height="30"/>
+                                <rect key="frame" x="20" y="124" width="374" height="30"/>
                                 <state key="normal" title="Markerless AR"/>
                                 <connections>
                                     <segue destination="K89-cf-jcp" kind="show" id="Fw2-PY-W3G"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="AvQ-MN-Em1" firstAttribute="trailing" secondItem="tkx-XK-QJq" secondAttribute="trailing" constant="20" id="4aH-aX-Rc8"/>
                             <constraint firstItem="tkx-XK-QJq" firstAttribute="leading" secondItem="AvQ-MN-Em1" secondAttribute="leading" constant="20" id="5eW-KU-lkE"/>
@@ -133,7 +132,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="pGq-Fn-z50" firstAttribute="leading" secondItem="73y-8g-ggU" secondAttribute="leading" constant="20" id="62X-XP-ZxL"/>
                             <constraint firstItem="73y-8g-ggU" firstAttribute="trailing" secondItem="pGq-Fn-z50" secondAttribute="trailing" constant="20" id="gNy-kd-uIJ"/>
@@ -148,14 +147,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYO-lP-BpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008.6956521739131" y="1148.6413043478262"/>
+            <point key="canvasLocation" x="1341" y="734"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iry-pZ-dMN">
             <objects>
                 <navigationController id="UcE-Ng-38Q" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sg9-Kc-WMD">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -167,4 +166,9 @@
             <point key="canvasLocation" x="-496" y="734"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

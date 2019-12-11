@@ -51,13 +51,14 @@ class MarkerViewController: ARCameraViewController {
         addImageNode()
         addModelNode()
         addVideoNode()
+        
         addSecondImageNode()
     }
     
     func setupImageTrackable() {
         // ARImageTrackable オブジェクトのインスタンス化と初期化
-        imageTrackable = ARImageTrackable.init(image: UIImage(named: "KudanPanel.jpg"), name: "panelMarker")
-        secondImageTrackable = ARImageTrackable.init(image: UIImage(named: "lego.jpg"), name: "legoMarker")
+        imageTrackable = ARImageTrackable.init(image: UIImage(named: "lego.jpg"), name: "legoMarker")
+        secondImageTrackable = ARImageTrackable.init(image: UIImage(named: "KudanPanel.jpg"), name: "panelMarker")
         
         // image tracker manager のインスタンスを取得して初期化
         let imageTrackerManager = ARImageTrackerManager.getInstance()
@@ -109,7 +110,7 @@ class MarkerViewController: ARCameraViewController {
     
     func addVideoNode() {
         // videoNode を mp4 ファイルで初期化
-        videoNode = ARVideoNode.init(bundledFile: "cloud.mp4")
+        videoNode = ARVideoNode.init(bundledFile: "water-and-bubbles.mp4")
         
         // 拡大率を指定
         let scaleRatio = Float(imageTrackable!.width) / Float(videoNode!.videoTexture.width)
