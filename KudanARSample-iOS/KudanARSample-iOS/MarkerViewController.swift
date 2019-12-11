@@ -11,10 +11,16 @@ import KudanAR
 
 class MarkerViewController: ARCameraViewController {
 
+    var imageTrackable:ARImageTrackable?
+    var secondImageTrackable:ARImageTrackable?
+    var videoNode:ARVideoNode?
+    var alphaVideoNode:ARAlphaVideoNode?
+    
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var modelButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
+    @IBOutlet weak var alphaVideoButton: UIButton!
     
     @IBAction func clearButton_TouchUpInside(_ sender: Any) {
         clearAllNodes()
@@ -33,16 +39,19 @@ class MarkerViewController: ARCameraViewController {
     
     @IBAction func videoButton_TouchUpInside(_ sender: Any) {
         clearAllNodes()
-        // videoNode のビデオが終了したら消えてしまうのをリセットさせてから再生して回避しています。
         videoNode?.reset()
         videoNode?.play()
         imageTrackable?.world.children[2].visible = true
     }
     
+    @IBAction func alphaVideoButon_TouchUpInside(_ sender: Any) {
+        clearAllNodes()
+        alphaVideoNode?.videoTexture.reset()
+        alphaVideoNode?.videoTexture.play()
+        imageTrackable?.world.children[3].visible = true
+    }
     
-    var imageTrackable:ARImageTrackable?
-    var secondImageTrackable:ARImageTrackable?
-    var videoNode:ARVideoNode?
+
     
     override func setupContent() {
         
@@ -51,6 +60,7 @@ class MarkerViewController: ARCameraViewController {
         addImageNode()
         addModelNode()
         addVideoNode()
+        addAlphaVideoNode()
         
         addSecondImageNode()
     }
@@ -116,10 +126,34 @@ class MarkerViewController: ARCameraViewController {
         let scaleRatio = Float(imageTrackable!.width) / Float(videoNode!.videoTexture.width)
         videoNode?.scale(byUniform: scaleRatio)
         
+        // くり返しを指定
+        videoNode?.videoTexture.resetThreshold = 2
+        videoNode?.reset()
+        videoNode?.play()
+        
         // ARImageTrackable に videoNode を追加
         imageTrackable?.world.addChild(videoNode)
         
         videoNode?.visible = false
+    }
+    
+    func addAlphaVideoNode() {
+        // AlphaVideoNode を mp4 ファイルで初期化
+        alphaVideoNode = ARAlphaVideoNode.init(bundledFile: "kaboom_alpha_video.mp4")
+        
+        // 拡大率を指定
+        let scaleRatio = Float(imageTrackable!.width) / Float(alphaVideoNode!.videoTexture.width) * 5
+        alphaVideoNode?.scale(byUniform: scaleRatio)
+
+        // くり返しを指定
+        alphaVideoNode?.videoTexture.resetThreshold = 2
+        alphaVideoNode?.videoTexture.reset()
+        alphaVideoNode?.videoTexture.play()
+        
+        // ARImageTrackable に videoNode を追加
+        imageTrackable?.world.addChild(alphaVideoNode)
+        
+        alphaVideoNode?.visible = false
     }
     
     func addSecondImageNode(){
