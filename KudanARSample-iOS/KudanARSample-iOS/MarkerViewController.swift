@@ -24,7 +24,7 @@ class MarkerViewController: ARCameraViewController {
         case Image, Model, Video, AlphaVideo
     }
     var shownNode: node?
-    
+    // ボタンに被らないように overlayView を作成し、そこに Gesture をアタッチします。
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
@@ -97,11 +97,7 @@ class MarkerViewController: ARCameraViewController {
     }
     
     @objc func pinchNode(sender: UIPinchGestureRecognizer) {
-        // 開始時に現在の状態を保存。
-        if (sender.state == UIGestureRecognizer.State.began){
-        }
-        NSLog("Pinched")
-        
+        // 各 Node により処理が違う可能性を考慮。
         switch shownNode {
         case .Image:
             pinchImage(imageScale: sender.scale)
@@ -129,8 +125,6 @@ class MarkerViewController: ARCameraViewController {
     }
 
     @objc func rotateNode(sender: UIRotationGestureRecognizer) {
-        NSLog("Rotate")
-        
         switch shownNode {
         case .Image:
             rotateImage(imageRotation: sender.rotation)
@@ -262,6 +256,7 @@ class MarkerViewController: ARCameraViewController {
     func resetAllNodes() {
         // imageNode を 初期のスケールレシオでリセット
         imageNode?.scale = ARVector3.init(valuesX: imageNodeScaleRatio, y: imageNodeScaleRatio, z: imageNodeScaleRatio)
+        // TODO: ImageNode の初期の回転に戻す操作
         
     }
 }
