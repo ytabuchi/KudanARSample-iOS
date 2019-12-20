@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UcE-Ng-38Q">
-    <device id="retina5_5" orientation="portrait" appearance="dark"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -56,20 +56,29 @@
                                     <action selector="alphaVideoButon_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ZS-Xq-6Ls"/>
                                 </connections>
                             </button>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63T-uN-ubD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="596"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="JPF-aV-AGZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Gpc-zP-Eko"/>
+                            <constraint firstItem="JPF-aV-AGZ" firstAttribute="top" secondItem="63T-uN-ubD" secondAttribute="bottom" constant="8" id="J9T-Rv-7qh"/>
                             <constraint firstItem="TIJ-mS-vF3" firstAttribute="leading" secondItem="Erq-Lj-xe2" secondAttribute="trailing" constant="8" id="MUU-w2-aIf"/>
+                            <constraint firstItem="63T-uN-ubD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OW4-NX-Ndv"/>
                             <constraint firstItem="Dcw-jN-fDL" firstAttribute="top" secondItem="Erq-Lj-xe2" secondAttribute="bottom" constant="8" id="YSs-FU-NLY"/>
                             <constraint firstItem="Dcw-jN-fDL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZxW-1M-z8e"/>
                             <constraint firstItem="Dcw-jN-fDL" firstAttribute="top" secondItem="S7I-Nv-0Wa" secondAttribute="bottom" constant="8" id="aap-fG-JwU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dcw-jN-fDL" secondAttribute="bottom" constant="20" id="cYy-G4-tbx"/>
+                            <constraint firstItem="63T-uN-ubD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cl1-Vd-UJa"/>
                             <constraint firstItem="Dcw-jN-fDL" firstAttribute="top" secondItem="JPF-aV-AGZ" secondAttribute="bottom" constant="8" id="eSJ-td-shl"/>
                             <constraint firstItem="Erq-Lj-xe2" firstAttribute="leading" secondItem="JPF-aV-AGZ" secondAttribute="trailing" constant="8" id="lMd-GH-Krk"/>
                             <constraint firstItem="Dcw-jN-fDL" firstAttribute="top" secondItem="TIJ-mS-vF3" secondAttribute="bottom" constant="8" id="m4n-oC-nRR"/>
                             <constraint firstItem="S7I-Nv-0Wa" firstAttribute="leading" secondItem="TIJ-mS-vF3" secondAttribute="trailing" constant="8" id="nmk-0n-LJI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dcw-jN-fDL" secondAttribute="trailing" constant="16" id="pUG-q3-eQg"/>
+                            <constraint firstItem="63T-uN-ubD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qlZ-v0-tD8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -79,12 +88,13 @@
                         <outlet property="clearButton" destination="Dcw-jN-fDL" id="5ge-3l-Kq4"/>
                         <outlet property="imageButton" destination="JPF-aV-AGZ" id="eNU-nt-rfA"/>
                         <outlet property="modelButton" destination="Erq-Lj-xe2" id="Ni2-IN-VxA"/>
+                        <outlet property="overlayView" destination="63T-uN-ubD" id="pNS-RX-FN9"/>
                         <outlet property="videoButton" destination="TIJ-mS-vF3" id="HAc-fe-jGP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1342" y="26"/>
+            <point key="canvasLocation" x="1340.5797101449277" y="25.271739130434785"/>
         </scene>
         <!--Kudan AR Sample-->
         <scene sceneID="jXb-aE-yPZ">

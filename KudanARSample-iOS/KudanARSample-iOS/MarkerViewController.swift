@@ -16,6 +16,7 @@ class MarkerViewController: ARCameraViewController {
     var videoNode:ARVideoNode?
     var alphaVideoNode:ARAlphaVideoNode?
     
+    @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var modelButton: UIButton!
@@ -51,10 +52,23 @@ class MarkerViewController: ARCameraViewController {
         imageTrackable?.world.children[3].visible = true
     }
     
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        // ジェスチャーの生成と overlayView へのアタッチ
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchNode(sender:)))
+        let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateNode(sender:)))
+        overlayView.addGestureRecognizer(pinchGestureRecognizer)
+        overlayView.addGestureRecognizer(rotateGestureRecognizer)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     override func setupContent() {
-        
         setupImageTrackable()
         
         addImageNode()
@@ -63,6 +77,16 @@ class MarkerViewController: ARCameraViewController {
         addAlphaVideoNode()
         
         addSecondImageNode()
+        
+        
+    }
+    
+    @objc func pinchNode(sender: UIPinchGestureRecognizer){
+        NSLog("Pinched")
+    }
+
+    @objc func rotateNode(sender: UIRotationGestureRecognizer){
+        NSLog("Rotated")
     }
     
     func setupImageTrackable() {
@@ -91,7 +115,7 @@ class MarkerViewController: ARCameraViewController {
 
         // ARImageTrackable に imageNode を追加
         imageTrackable?.world.addChild(imageNode)
-
+        
         imageNode?.visible = false
     }
     
@@ -175,16 +199,6 @@ class MarkerViewController: ARCameraViewController {
         secondNodes?.forEach({ (secondNode) in
             secondNode.visible = false
         })
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
