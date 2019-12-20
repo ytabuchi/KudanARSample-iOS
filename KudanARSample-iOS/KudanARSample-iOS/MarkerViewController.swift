@@ -11,12 +11,23 @@ import KudanAR
 
 class MarkerViewController: ARCameraViewController {
 
-    var imageTrackable:ARImageTrackable?
-    var secondImageTrackable:ARImageTrackable?
-    var videoNode:ARVideoNode?
-    var alphaVideoNode:ARAlphaVideoNode?
+    var imageTrackable: ARImageTrackable?
+    var secondImageTrackable: ARImageTrackable?
+    // 表示される Node
+    var imageNode: ARImageNode?
+    var videoNode: ARVideoNode?
+    var alphaVideoNode: ARAlphaVideoNode?
+    // 各 Node の scale
+    var imageNodeScaleRatio: Float = 0
+    // 表示されている Node 名
+    enum node {
+        case Image, Model, Video, AlphaVideo
+    }
+    var shownNode: node?
     
+    @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var modelButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
@@ -26,8 +37,13 @@ class MarkerViewController: ARCameraViewController {
         clearAllNodes()
     }
     
+    @IBAction func resetButton_TouchUpInside(_ sender: Any) {
+        resetAllNodes()
+    }
+    
     @IBAction func imageButton_TouchUpInside(_ sender: Any) {
         clearAllNodes()
+        shownNode = node.Image
         imageTrackable?.world.children[0].visible = true
         secondImageTrackable?.world.children[0].visible = true
     }
@@ -51,10 +67,23 @@ class MarkerViewController: ARCameraViewController {
         imageTrackable?.world.children[3].visible = true
     }
     
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        // ジェスチャーの生成と overlayView へのアタッチ
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchNode(sender:)))
+        overlayView.addGestureRecognizer(pinchGestureRecognizer)
+        let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateNode(sender:)))
+        overlayView.addGestureRecognizer(rotateGestureRecognizer)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     override func setupContent() {
-        
         setupImageTrackable()
         
         addImageNode()
@@ -63,6 +92,43 @@ class MarkerViewController: ARCameraViewController {
         addAlphaVideoNode()
         
         addSecondImageNode()
+        
+        
+    }
+    
+    @objc func pinchNode(sender: UIPinchGestureRecognizer) {
+        // 開始時に現在の状態を保存。
+        if (sender.state == UIGestureRecognizer.State.began){
+        }
+        
+        switch shownNode {
+        case .Image:
+            pinchImage(imageScale: sender.scale)
+        default:
+            NSLog("Pinched")
+        }
+    }
+    
+    func pinchImage(imageScale: CGFloat) {
+        let minScale = imageNodeScaleRatio / 4
+        let maxScale = imageNodeScaleRatio * 8
+        
+        if (imageNode!.scale.x >= minScale &&
+            imageNode!.scale.x <= maxScale) {
+            imageNode?.scale(byUniform: Float(imageScale))
+            
+            // 範囲をオーバーしたらスケールを止める
+            if (imageNode!.scale.x > maxScale) {
+                imageNode?.scale = ARVector3.init(valuesX: maxScale, y: maxScale, z: maxScale)
+            }
+            if (imageNode!.scale.x < minScale) {
+                imageNode?.scale = ARVector3.init(valuesX: minScale, y: minScale, z: minScale)
+            }
+        }
+    }
+
+    @objc func rotateNode(sender: UIRotationGestureRecognizer) {
+        NSLog("Rotated")
     }
     
     func setupImageTrackable() {
@@ -79,19 +145,21 @@ class MarkerViewController: ARCameraViewController {
         imageTrackerManager?.addTrackable(secondImageTrackable)
     }
     
+    
     func addImageNode() {
         // ImageNode を表示させたい画像で初期化
         // PNG の場合は拡張子は不要です。
-        let imageNode = ARImageNode(image: UIImage(named: "cow"))
+        imageNode = ARImageNode(image: UIImage(named: "cow"))
         
         // マーカー画像のサイズに合わせるように、それぞれの幅から拡大率を計算
-        let scaleRatio = Float(imageTrackable!.width)/Float(imageNode!.texture.width)
+        imageNodeScaleRatio = Float(imageTrackable!.width)/Float(imageNode!.texture.width)
+        NSLog("ScaleRatio: \(imageNodeScaleRatio)")
         // 拡大率を ImageNode に適用
-        imageNode?.scale(byUniform: scaleRatio)
+        imageNode?.scale(byUniform: imageNodeScaleRatio)
 
         // ARImageTrackable に imageNode を追加
         imageTrackable?.world.addChild(imageNode)
-
+        
         imageNode?.visible = false
     }
     
@@ -166,6 +234,8 @@ class MarkerViewController: ARCameraViewController {
     }
     
     func clearAllNodes() {
+        shownNode = nil
+        resetAllNodes()
         let nodes = imageTrackable?.world.children
         nodes?.forEach({ (node) in
             node.visible = false
@@ -177,14 +247,8 @@ class MarkerViewController: ARCameraViewController {
         })
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func resetAllNodes() {
+        imageNode?.scale = ARVector3.init(valuesX: imageNodeScaleRatio, y: imageNodeScaleRatio, z: imageNodeScaleRatio)
     }
 }
 
