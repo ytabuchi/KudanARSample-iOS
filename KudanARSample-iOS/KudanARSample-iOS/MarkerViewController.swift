@@ -100,12 +100,13 @@ class MarkerViewController: ARCameraViewController {
         // 開始時に現在の状態を保存。
         if (sender.state == UIGestureRecognizer.State.began){
         }
+        NSLog("Pinched")
         
         switch shownNode {
         case .Image:
             pinchImage(imageScale: sender.scale)
         default:
-            NSLog("Pinched")
+            NSLog("Pinched: \(sender.scale)")
         }
     }
     
@@ -128,7 +129,18 @@ class MarkerViewController: ARCameraViewController {
     }
 
     @objc func rotateNode(sender: UIRotationGestureRecognizer) {
-        NSLog("Rotated")
+        NSLog("Rotate")
+        
+        switch shownNode {
+        case .Image:
+            rotateImage(imageRotation: sender.rotation)
+        default:
+            NSLog("Rotate: \(sender.rotation)\nVelocity: \(sender.velocity)")
+        }
+    }
+    
+    func rotateImage(imageRotation: CGFloat) {
+        imageNode?.rotate(byRadians: Float(-imageRotation / 5), axisX: 0, y: 0, z: 1)
     }
     
     func setupImageTrackable() {
@@ -248,7 +260,9 @@ class MarkerViewController: ARCameraViewController {
     }
     
     func resetAllNodes() {
+        // imageNode を 初期のスケールレシオでリセット
         imageNode?.scale = ARVector3.init(valuesX: imageNodeScaleRatio, y: imageNodeScaleRatio, z: imageNodeScaleRatio)
+        
     }
 }
 
