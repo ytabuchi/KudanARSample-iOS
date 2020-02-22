@@ -11,6 +11,7 @@ import KudanAR
 
 class MarkerViewController: ARCameraViewController {
 
+    var marker :UIImage?
     var imageTrackable: ARImageTrackable?
     var secondImageTrackable: ARImageTrackable?
     // 表示される Node
@@ -139,7 +140,8 @@ class MarkerViewController: ARCameraViewController {
     
     func setupImageTrackable() {
         // ARImageTrackable オブジェクトのインスタンス化と初期化
-        imageTrackable = ARImageTrackable.init(image: UIImage(named: "lego.jpg"), name: "legoMarker")
+//        imageTrackable = ARImageTrackable.init(image: UIImage(named: "lego.jpg"), name: "legoMarker")
+        imageTrackable = ARImageTrackable.init(image: marker!, name: "marker")
         secondImageTrackable = ARImageTrackable.init(image: UIImage(named: "KudanPanel.jpg"), name: "panelMarker")
         
         // image tracker manager のインスタンスを取得して初期化
