@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E489FC921E5AF8E000D8257 /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E489FC821E5AF8E000D8257 /* KudanAR.framework */; };
 		3E4B155723A10BBF00FD070F /* kaboom_alpha_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E4B155623A10BBF00FD070F /* kaboom_alpha_video.mp4 */; };
 		3E502CF123A0E109003C52B6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E502CF023A0E109003C52B6 /* Colors.xcassets */; };
 		3E502CF323A0E51B003C52B6 /* water-and-bubbles.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E502CF223A0E51A003C52B6 /* water-and-bubbles.mp4 */; };
@@ -21,10 +20,10 @@
 		3EBC030421070EBC0042FCB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC030221070EBC0042FCB6 /* Main.storyboard */; };
 		3EBC030621070EBE0042FCB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC030521070EBE0042FCB6 /* Assets.xcassets */; };
 		3EBC030921070EBE0042FCB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC030721070EBE0042FCB6 /* LaunchScreen.storyboard */; };
+		3EEC2FC624A1FCA600D7A44E /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEC2FC524A1FCA600D7A44E /* KudanAR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3E489FC821E5AF8E000D8257 /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KudanAR.framework; sourceTree = "<group>"; };
 		3E4B155623A10BBF00FD070F /* kaboom_alpha_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kaboom_alpha_video.mp4; sourceTree = "<group>"; };
 		3E502CF023A0E109003C52B6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3E502CF223A0E51A003C52B6 /* water-and-bubbles.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "water-and-bubbles.mp4"; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		3EBC030521070EBE0042FCB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBC030821070EBE0042FCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EBC030A21070EBE0042FCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EEC2FC524A1FCA600D7A44E /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KudanAR.framework; path = ../../../../Downloads/KudanAR.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E7A5A11211D218100E0BE14 /* libc++.tbd in Frameworks */,
-				3E489FC921E5AF8E000D8257 /* KudanAR.framework in Frameworks */,
+				3EEC2FC624A1FCA600D7A44E /* KudanAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +94,7 @@
 		3EBC02FD21070EBC0042FCB6 /* KudanARSample-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				3E489FC821E5AF8E000D8257 /* KudanAR.framework */,
+				3EEC2FC524A1FCA600D7A44E /* KudanAR.framework */,
 				3EA5A1ED212D064800A19546 /* Assets */,
 				3EBC030521070EBE0042FCB6 /* Assets.xcassets */,
 				3E502CF023A0E109003C52B6 /* Colors.xcassets */,
@@ -136,7 +136,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Yoshito Tabuchi";
 				TargetAttributes = {
 					3EBC02FA21070EBC0042FCB6 = {
@@ -146,7 +146,7 @@
 				};
 			};
 			buildConfigurationList = 3EBC02F621070EBC0042FCB6 /* Build configuration list for PBXProject "KudanARSample-iOS" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -218,14 +218,12 @@
 		3EBC030B21070EBE0042FCB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -247,12 +245,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -266,25 +260,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		3EBC030C21070EBE0042FCB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -306,12 +299,9 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -319,12 +309,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -341,7 +331,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "KudanARSample-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,7 +357,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "KudanARSample-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
