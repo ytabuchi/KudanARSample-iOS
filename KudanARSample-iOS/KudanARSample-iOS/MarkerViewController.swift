@@ -34,6 +34,14 @@ class MarkerViewController: ARCameraViewController {
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var alphaVideoButton: UIButton!
     
+    
+    @IBOutlet weak var switchCameraButton: UIButton!
+    @IBAction func switchCameraButton_TouchUpInside(_ sender: Any) {
+        let stream = ARCameraStream.getInstance()
+        stream?.switchCameraTapped()
+    }
+    
+    
     @IBAction func clearButton_TouchUpInside(_ sender: Any) {
         clearAllNodes()
     }
