@@ -35,10 +35,10 @@ class MarkerViewController: ARCameraViewController {
     @IBOutlet weak var alphaVideoButton: UIButton!
     
     
+    
     @IBOutlet weak var switchCameraButton: UIButton!
     @IBAction func switchCameraButton_TouchUpInside(_ sender: Any) {
-        let stream = ARCameraStream.getInstance()
-        stream?.switchCameraTapped()
+        self.cameraView.switchCamera()
     }
     
     

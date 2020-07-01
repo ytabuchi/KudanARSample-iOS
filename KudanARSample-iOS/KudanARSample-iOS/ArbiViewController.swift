@@ -36,8 +36,7 @@ class ArbiViewController: ARCameraViewController {
     }
     
     @IBAction func switchCameraButton_TouchUpInside(_ sender: Any) {
-        let stream = ARCameraStream.getInstance()
-        stream?.switchCameraTapped()
+        self.cameraView.switchCamera()
     }
     
     
@@ -54,12 +53,12 @@ class ArbiViewController: ARCameraViewController {
         trackingNode = ARImageNode(image: UIImage(named: "CowTracking"))
         
         // ノードの画像を床に水平にするために回転
-//        trackingNode?.rotate(byDegrees: 90, axisX: 1.0, y: 0.0, z: 0.0)
-//        trackingNode?.rotate(byDegrees: 180.0, axisX: 0.0, y: 1.0, z: 0.0)
+        trackingNode?.rotate(byDegrees: 90, axisX: 1.0, y: 0.0, z: 0.0)
+        trackingNode?.rotate(byDegrees: 180.0, axisX: 0.0, y: 1.0, z: 0.0)
 //        trackingNode?.rotate(byDegrees: 270.0, axisX: 0.0, y: 0.0, z: 1.0)
         
         // ノードの画像を床から垂直にする。
-        trackingNode?.rotate(byDegrees: 180, axisX: 0.0, y: 1.0, z: 0.0)
+//        trackingNode?.rotate(byDegrees: 180, axisX: 0.0, y: 1.0, z: 0.0)
     }
     
     func setupArbiTrack() {
@@ -79,12 +78,12 @@ class ArbiViewController: ARCameraViewController {
         gyroPlaceManager?.world.addChild(targetImageNode);
         
         // ノードの画像を床に水平にするために回転し、サイズを調整
-//        targetImageNode?.rotate(byDegrees: 90.0, axisX: 1.0, y: 0.0, z: 0.0)
-//        targetImageNode?.rotate(byDegrees: 180.0, axisX: 0.0, y: 1.0, z: 0.0)
-//        targetImageNode?.rotate(byDegrees: 270.0, axisX: 0.0, y: 0.0, z: 1.0)
-        
+        targetImageNode?.rotate(byDegrees: 90.0, axisX: 1.0, y: 0.0, z: 0.0)
+        targetImageNode?.rotate(byDegrees: 180.0, axisX: 0.0, y: 1.0, z: 0.0)
+//        targetImageNode?.rotate(byDegrees: 180.0, axisX: 0.0, y: 0.0, z: 1.0)
         // ノードの画像を床から垂直にする。
-        targetImageNode?.rotate(byDegrees: 180, axisX: 0.0, y: 1.0, z: 0.0)
+//        targetImageNode?.rotate(byDegrees: 180, axisX: 0.0, y: 1.0, z: 0.0)
+        
         targetImageNode?.scale(byUniform: 0.3)
         
         // ARArbiTrack の targetNode に指定
