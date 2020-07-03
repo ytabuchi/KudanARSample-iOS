@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UcE-Ng-38Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UcE-Ng-38Q">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -211,18 +211,33 @@
                                     <action selector="changeTrackingModeButton_TouchUpInside:" destination="K89-cf-jcp" eventType="touchUpInside" id="pZC-rr-mEI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinch and pan to scale and rotate model." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wnb-kQ-Ycl">
+                                <rect key="frame" x="35" y="103" width="310" height="25"/>
+                                <color key="backgroundColor" name="Background"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="Vfh-1d-yTK"/>
+                                    <constraint firstAttribute="height" constant="25" id="bbs-fi-qHq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="pGq-Fn-z50" firstAttribute="leading" secondItem="73y-8g-ggU" secondAttribute="leading" constant="20" id="62X-XP-ZxL"/>
+                            <constraint firstItem="Wnb-kQ-Ycl" firstAttribute="top" secondItem="73y-8g-ggU" secondAttribute="top" constant="15" id="HRv-5p-fMl"/>
                             <constraint firstItem="73y-8g-ggU" firstAttribute="trailing" secondItem="pGq-Fn-z50" secondAttribute="trailing" constant="20" id="gNy-kd-uIJ"/>
                             <constraint firstItem="73y-8g-ggU" firstAttribute="bottom" secondItem="pGq-Fn-z50" secondAttribute="bottom" constant="20" id="whG-SC-MtM"/>
+                            <constraint firstItem="Wnb-kQ-Ycl" firstAttribute="centerX" secondItem="JgY-YV-LLu" secondAttribute="centerX" constant="2.5" id="x13-D1-2Je"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="73y-8g-ggU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Markerless AR" id="I0M-Us-qIf"/>
                     <connections>
                         <outlet property="changeTrackingModeButton" destination="pGq-Fn-z50" id="ODK-hD-Kih"/>
+                        <outlet property="descriptionLabel" destination="Wnb-kQ-Ycl" id="EFw-1k-D4b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYO-lP-BpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

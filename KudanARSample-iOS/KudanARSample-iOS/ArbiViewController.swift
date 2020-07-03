@@ -12,20 +12,25 @@ import KudanAR
 class ArbiViewController: ARCameraViewController {
     
     var modelNode:ARModelNode?
+    var lastScale:CGFloat?
+    var lastPanX:CGFloat?
+    var isTracking:Bool = false
     
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var changeTrackingModeButton: UIButton!
     
     @IBAction func changeTrackingModeButton_TouchUpInside(_ sender: Any) {
         
-        let arbiTrack = ARArbiTrackerManager.getInstance()
-        
-        if let arbiTracker = arbiTrack {
+        if let arbiTracker = ARArbiTrackerManager.getInstance() {
             if (arbiTracker.isTracking) {
+                self.isTracking = false
                 arbiTracker.stop()
                 arbiTracker.targetNode.visible = true
                 
                 changeTrackingModeButton.setTitle("Start Tracking", for: UIControl.State.normal)
             } else {
+                self.isTracking = true
                 arbiTracker.start()
                 arbiTracker.targetNode.visible = false
                 
@@ -38,8 +43,51 @@ class ArbiViewController: ARCameraViewController {
         
         addModelNode()
         setupArbiTrack()
+        
+        // ジェスチャーの生成と cameraView へのアタッチ
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchModel(sender:)))
+        self.cameraView.addGestureRecognizer(pinchGestureRecognizer)
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(rotateModel(sender:)))
+        self.cameraView.addGestureRecognizer(panGestureRecognizer)
     }
     
+    @objc func pinchModel(sender: UIPinchGestureRecognizer) {
+        if (self.isTracking) {
+            var scaleFactor = sender.scale
+            
+            if (sender.state == UIGestureRecognizer.State.began) {
+                lastScale = 1
+            }
+            
+            if let scale = lastScale {
+                scaleFactor = 1 - (scale - scaleFactor)
+                lastScale = sender.scale
+                
+                self.modelNode?.scale(byUniform: Float(scaleFactor))
+            }
+        }
+        NSLog("Pinched: \(sender.scale)")
+    }
+    
+    @objc func rotateModel(sender: UIPanGestureRecognizer) {
+        if (self.isTracking) {
+            let x = sender.translation(in: self.cameraView).x
+            
+            if (sender.state == UIGestureRecognizer.State.began) {
+                lastPanX = x
+            }
+            
+            if let panX = lastPanX {
+                let diff = x - panX
+                let degree = diff * 0.25
+                
+                self.modelNode?.rotate(byDegrees: Float(degree), axisX: 0, y: 1, z: 0
+                
+                )
+            }
+        }
+        NSLog("Panned: \(sender.translation(in: self.view))")
+    }
     
     func addModelNode() {
 
