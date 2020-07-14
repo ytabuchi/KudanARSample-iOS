@@ -17,25 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63T-uN-ubD">
-                                <rect key="frame" x="0.0" y="88" width="375" height="599"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ksA-Wg-EnT">
                                 <rect key="frame" x="20" y="733" width="335" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcw-jN-fDL">
-                                        <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                         <state key="normal" title="Clear"/>
                                         <connections>
                                             <action selector="clearButton_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Shv-N1-eDW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6s-D9-dC5">
-                                        <rect key="frame" x="171.66666666666663" y="0.0" width="163.33333333333337" height="30"/>
-                                        <state key="normal" title="Reset"/>
-                                        <connections>
-                                            <action selector="resetButton_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VpS-7R-ji2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -82,18 +71,11 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ksA-Wg-EnT" secondAttribute="trailing" constant="20" id="0kD-Br-RBa"/>
-                            <constraint firstItem="63T-uN-ubD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9S2-Ph-wlE"/>
                             <constraint firstItem="ksA-Wg-EnT" firstAttribute="top" secondItem="9EF-lV-E6T" secondAttribute="bottom" constant="8" id="MLn-NB-hJt"/>
-                            <constraint firstItem="63T-uN-ubD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OW4-NX-Ndv"/>
-                            <constraint firstItem="9EF-lV-E6T" firstAttribute="top" secondItem="63T-uN-ubD" secondAttribute="bottom" constant="8" symbolic="YES" id="UYv-wo-LY3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9EF-lV-E6T" secondAttribute="trailing" constant="20" id="bUb-8g-mbB"/>
-                            <constraint firstItem="63T-uN-ubD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cl1-Vd-UJa"/>
                             <constraint firstItem="9EF-lV-E6T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ibA-lG-XP8"/>
-                            <constraint firstItem="63T-uN-ubD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qlZ-v0-tD8"/>
                             <constraint firstItem="ksA-Wg-EnT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sGh-GU-Pl2"/>
-                            <constraint firstItem="63T-uN-ubD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sl3-EA-wF2"/>
                             <constraint firstItem="ksA-Wg-EnT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-15" id="tIC-zs-vrY"/>
-                            <constraint firstItem="63T-uN-ubD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w3G-fF-3yV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -103,8 +85,6 @@
                         <outlet property="clearButton" destination="Dcw-jN-fDL" id="5ge-3l-Kq4"/>
                         <outlet property="imageButton" destination="JPF-aV-AGZ" id="eNU-nt-rfA"/>
                         <outlet property="modelButton" destination="Erq-Lj-xe2" id="Ni2-IN-VxA"/>
-                        <outlet property="overlayView" destination="63T-uN-ubD" id="pNS-RX-FN9"/>
-                        <outlet property="resetButton" destination="P6s-D9-dC5" id="dLZ-GN-LcZ"/>
                         <outlet property="videoButton" destination="TIJ-mS-vF3" id="HAc-fe-jGP"/>
                     </connections>
                 </viewController>

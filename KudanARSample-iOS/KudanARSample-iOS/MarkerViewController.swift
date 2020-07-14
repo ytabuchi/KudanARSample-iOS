@@ -16,6 +16,7 @@ class MarkerViewController: ARCameraViewController {
     var secondImageTrackable: ARImageTrackable?
     // 表示される Node
     var imageNode: ARImageNode?
+    var modelNode:ARModelNode?
     var videoNode: ARVideoNode?
     var alphaVideoNode: ARAlphaVideoNode?
     // 各 Node の scale
@@ -25,8 +26,12 @@ class MarkerViewController: ARCameraViewController {
         case Image, Model, Video, AlphaVideo
     }
     var shownNode: node?
+    
+    var lastScale:CGFloat?
+    var lastPanX:CGFloat?
+    
     // ボタンに被らないように overlayView を作成し、そこに Gesture をアタッチします。
-    @IBOutlet weak var overlayView: UIView!
+//    @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var imageButton: UIButton!
@@ -38,10 +43,6 @@ class MarkerViewController: ARCameraViewController {
         clearAllNodes()
     }
     
-    @IBAction func resetButton_TouchUpInside(_ sender: Any) {
-        resetAllNodes()
-    }
-    
     @IBAction func imageButton_TouchUpInside(_ sender: Any) {
         clearAllNodes()
         shownNode = node.Image
@@ -51,6 +52,7 @@ class MarkerViewController: ARCameraViewController {
     
     @IBAction func modelButton_TouchUpInside(_ sender: Any) {
         clearAllNodes()
+        shownNode = node.Model
         imageTrackable?.world.children[1].visible = true
     }
     
@@ -71,12 +73,6 @@ class MarkerViewController: ARCameraViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        // ジェスチャーの生成と overlayView へのアタッチ
-        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchNode(sender:)))
-        overlayView.addGestureRecognizer(pinchGestureRecognizer)
-        let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(rotateNode(sender:)))
-        overlayView.addGestureRecognizer(rotateGestureRecognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,7 +90,11 @@ class MarkerViewController: ARCameraViewController {
         
         addSecondImageNode()
         
-        
+        // ジェスチャーの生成と cameraView へのアタッチ
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchNode(sender:)))
+        self.cameraView.addGestureRecognizer(pinchGestureRecognizer)
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(rotateNode(sender:)))
+        self.cameraView.addGestureRecognizer(panGestureRecognizer)
     }
     
     @objc func pinchNode(sender: UIPinchGestureRecognizer) {
@@ -102,6 +102,8 @@ class MarkerViewController: ARCameraViewController {
         switch shownNode {
         case .Image:
             pinchImage(imageScale: sender.scale)
+        case .Model:
+            pinchModel(sender: sender)
         default:
             NSLog("Pinched: \(sender.scale)")
         }
@@ -124,18 +126,53 @@ class MarkerViewController: ARCameraViewController {
             }
         }
     }
+    
+    func pinchModel(sender: UIPinchGestureRecognizer) {
+        var scaleFactor = sender.scale
+        
+        if (sender.state == UIGestureRecognizer.State.began) {
+            lastScale = 1
+        }
+        
+        if let scale = lastScale {
+            scaleFactor = 1 - (scale - scaleFactor)
+            lastScale = sender.scale
+            
+            self.modelNode?.scale(byUniform: Float(scaleFactor))
+        }
+    }
 
-    @objc func rotateNode(sender: UIRotationGestureRecognizer) {
+    @objc func rotateNode(sender: UIPanGestureRecognizer) {
         switch shownNode {
-        case .Image:
-            rotateImage(imageRotation: sender.rotation)
+//        case .Image:
+//            rotateImage(imageRotation: sender.rotation)
+        case .Model:
+            rotateModel(sender: sender)
         default:
-            NSLog("Rotate: \(sender.rotation)\nVelocity: \(sender.velocity)")
+            NSLog("Panned: \(sender.translation(in: self.view))")
         }
     }
     
     func rotateImage(imageRotation: CGFloat) {
         imageNode?.rotate(byRadians: Float(-imageRotation / 5), axisX: 0, y: 0, z: 1)
+    }
+    func rotateModel(sender: UIPanGestureRecognizer) {
+        let x = sender.translation(in: self.cameraView).x
+        
+        if (sender.state == UIGestureRecognizer.State.began) {
+            lastPanX = x
+        }
+        
+        if let panX = lastPanX {
+            let diff = x - panX
+            let degree = diff * 0.25
+            
+            self.modelNode?.rotate(byDegrees: Float(degree), axisX: 0, y: 1, z: 0
+            
+            )
+        }
+
+        NSLog("Panned: \(sender.translation(in: self.view))")
     }
     
     func setupImageTrackable() {
@@ -172,6 +209,7 @@ class MarkerViewController: ARCameraViewController {
     }
     
     func addModelNode() {
+        /* BigBen のモデル
         // モデルのインポート
         let modelImporter = ARModelImporter(bundled: "ben.armodel")
         let modelNode = modelImporter?.getNode()
@@ -190,8 +228,35 @@ class MarkerViewController: ARCameraViewController {
         
         // ARImageTrackable に modelNode を追加
         imageTrackable?.world.addChild(modelNode)
+        */
         
-        modelNode?.visible = false
+        // モデルのインポート
+        let modelImporter = ARModelImporter(bundled: "bloodhound.armodel")
+        let modelNode = modelImporter?.getNode()
+
+        // モデルのマテリアルを設定
+        let material = ARLightMaterial()
+        material.colour.texture = ARTexture.init(uiImage: UIImage.init(named: "bloodhound.png"))
+        material.diffuse.value = ARVector3.init(valuesX: 0.2, y: 0.2, z: 0.2)
+        material.ambient.value = ARVector3.init(valuesX: 0.8, y: 0.8, z: 0.8)
+        material.specular.value = ARVector3.init(valuesX: 0.3, y: 0.3, z: 0.3)
+        material.shininess = 20
+        material.reflection.reflectivity = 0.15
+        
+        // モデルの ARMeshNode にマテリアルを割り当て
+        if let meshNodes = modelNode?.meshNodes {
+            for case let meshNode as ARMeshNode in meshNodes {
+                meshNode.material = material
+            }
+        }
+        
+        modelNode?.scale(byUniform: 15.0)
+        modelNode?.rotate(byDegrees: 90, axisX: 1.0, y: 0.0, z: 0.0)
+        self.modelNode = modelNode
+        // ARImageTrackable に videoNode を追加
+        imageTrackable?.world.addChild(self.modelNode)
+        
+        self.modelNode?.visible = false
     }
     
     func addVideoNode() {
