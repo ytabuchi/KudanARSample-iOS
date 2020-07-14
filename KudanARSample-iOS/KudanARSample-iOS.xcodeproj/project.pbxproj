@@ -11,6 +11,8 @@
 		3E502CF123A0E109003C52B6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E502CF023A0E109003C52B6 /* Colors.xcassets */; };
 		3E502CF323A0E51B003C52B6 /* water-and-bubbles.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E502CF223A0E51A003C52B6 /* water-and-bubbles.mp4 */; };
 		3E587069214BA9BD00CCDF3E /* ArbiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E587068214BA9BD00CCDF3E /* ArbiViewController.swift */; };
+		3E5FF9E124AC8BE900A9FA67 /* bloodhound.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E5FF9DF24AC8BE900A9FA67 /* bloodhound.png */; };
+		3E5FF9E224AC8BE900A9FA67 /* bloodhound.armodel in Resources */ = {isa = PBXBuildFile; fileRef = 3E5FF9E024AC8BE900A9FA67 /* bloodhound.armodel */; };
 		3E7A5A11211D218100E0BE14 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7A5A10211D218100E0BE14 /* libc++.tbd */; };
 		3EA5A1EF212D162500A19546 /* ben.armodel in Resources */ = {isa = PBXBuildFile; fileRef = 3EA5A1EE212D162500A19546 /* ben.armodel */; };
 		3EA5A1F1212D16B200A19546 /* bigBenTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EA5A1F0212D16B200A19546 /* bigBenTexture.png */; };
@@ -28,6 +30,8 @@
 		3E502CF023A0E109003C52B6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3E502CF223A0E51A003C52B6 /* water-and-bubbles.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "water-and-bubbles.mp4"; sourceTree = "<group>"; };
 		3E587068214BA9BD00CCDF3E /* ArbiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbiViewController.swift; sourceTree = "<group>"; };
+		3E5FF9DF24AC8BE900A9FA67 /* bloodhound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloodhound.png; sourceTree = "<group>"; };
+		3E5FF9E024AC8BE900A9FA67 /* bloodhound.armodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = bloodhound.armodel; sourceTree = "<group>"; };
 		3E7A5A10211D218100E0BE14 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		3EA5A1EE212D162500A19546 /* ben.armodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = ben.armodel; sourceTree = "<group>"; };
 		3EA5A1F0212D16B200A19546 /* bigBenTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigBenTexture.png; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 		3EA5A1ED212D064800A19546 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				3E5FF9E024AC8BE900A9FA67 /* bloodhound.armodel */,
+				3E5FF9DF24AC8BE900A9FA67 /* bloodhound.png */,
 				3E4B155623A10BBF00FD070F /* kaboom_alpha_video.mp4 */,
 				3E502CF223A0E51A003C52B6 /* water-and-bubbles.mp4 */,
 				3EA5A1F0212D16B200A19546 /* bigBenTexture.png */,
@@ -169,12 +175,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EBC030921070EBE0042FCB6 /* LaunchScreen.storyboard in Resources */,
+				3E5FF9E124AC8BE900A9FA67 /* bloodhound.png in Resources */,
 				3E4B155723A10BBF00FD070F /* kaboom_alpha_video.mp4 in Resources */,
 				3EBC030621070EBE0042FCB6 /* Assets.xcassets in Resources */,
 				3E502CF323A0E51B003C52B6 /* water-and-bubbles.mp4 in Resources */,
 				3EA5A1EF212D162500A19546 /* ben.armodel in Resources */,
 				3E502CF123A0E109003C52B6 /* Colors.xcassets in Resources */,
 				3EBC030421070EBC0042FCB6 /* Main.storyboard in Resources */,
+				3E5FF9E224AC8BE900A9FA67 /* bloodhound.armodel in Resources */,
 				3EA5A1F1212D16B200A19546 /* bigBenTexture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
