@@ -34,11 +34,11 @@ class MarkerViewController: ARCameraViewController {
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var alphaVideoButton: UIButton!
     
-    
-    
     @IBOutlet weak var switchCameraButton: UIButton!
     @IBAction func switchCameraButton_TouchUpInside(_ sender: Any) {
-        self.cameraView.switchCamera()
+        if let stream = ARCameraStream.getInstance() {
+            stream.switchCamera()
+        }
     }
     
     
@@ -165,7 +165,7 @@ class MarkerViewController: ARCameraViewController {
     func addImageNode() {
         // ImageNode を表示させたい画像で初期化
         // PNG の場合は拡張子は不要です。
-        imageNode = ARImageNode(image: UIImage(named: "cow"))
+        imageNode = ARImageNode(image: UIImage(named: "CowTarget"))
         
         // マーカー画像のサイズに合わせるように、それぞれの幅から拡大率を計算
         imageNodeScaleRatio = Float(imageTrackable!.width)/Float(imageNode!.texture.width)

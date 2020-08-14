@@ -36,7 +36,9 @@ class ArbiViewController: ARCameraViewController {
     }
     
     @IBAction func switchCameraButton_TouchUpInside(_ sender: Any) {
-        self.cameraView.switchCamera()
+        if let stream = ARCameraStream.getInstance() {
+            stream.switchCamera()
+        }
     }
     
     
